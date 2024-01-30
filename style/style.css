@@ -1,0 +1,153 @@
+body {
+    background-color: #fff; /* Default background color for light mode */
+    color: #333; /* Default text color for light mode */
+    font-family: 'Merriweather', serif;
+    display: inline-block;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+.feed__item {
+    position: relative;
+    overflow: hidden;
+    background-color: #1fa1f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 12px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feed__item:hover {
+    transform: scale(1.02); /* Scale up on hover for a subtle effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+}
+
+.feed__item h3 {
+    margin-bottom: 5px;
+}
+.feed__item h3 a {
+    text-decoration: none;
+}
+
+.feed__item p {
+    margin-bottom: 10px;
+    color: #333;
+}
+.feed__item--alt {
+    flex-basis: calc(30% - 30px); /* Three items per line with some margin */
+    margin: 10px;
+}
+.read-more-button {
+    transition: transform 0.3s ease;
+    transform: translateY(150%);
+    background-color: #116021;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1em;
+
+}
+
+/* Flexbox styles */
+@media (min-width: 768px) {
+    .feed__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Adjust as needed */
+        padding: 0 10px;
+    }
+
+    .feed__item {
+        width: calc(50% - 3em); /* 50% width with some spacing between items */
+    }
+    .read-more-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .feed__item:hover .read-more-button{
+        transform: translateY(0);
+    }
+}
+@media (min-width: 1440px) {
+    .feed__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .feed__item {
+        width: calc(42%);
+    }
+
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a.active,
+.pagination a:hover {
+    background-color: #ddd;
+    color: #555;
+}
+.tabs {
+    display: flex;
+    overflow-x: auto;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab.active {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.tab:hover {
+    background-color: #15a2a3;
+}
+.tab a {
+    text-decoration: none;
+    color: #121212;
+    display: block;
+}
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333; /* Dark mode background color */
+        color: #fff; /* Dark mode text color */
+    }
+    .pagination a {
+        background-color: #fff;
+    }
+    .tab a {
+        text-decoration: none;
+        color: #eee;
+    }
+}
